@@ -1,34 +1,37 @@
-import React, { Component } from "react";
+import React, { Component, useState } from "react";
 import "./hoja-de-estilos/Login.css";
 import { useForm } from "react-hook-form";
+
 function Login() {
   const {
     register,
     formState: { errors },
     handleSubmit,
   } = useForm();
-  let errorBD = false;
-  let errorUser = false;
+  const [errorUser,setUser] = useState(false);
+  const [errorBD,setBD] = useState(false);
   const onSubmit = (dataInput, e) => {
-    errorUser = false;
-    errorBD = false;
+    setBD(false);
+    setUser(false);
     fetch(
-      `http://localhost/Space Managment/servicioUsuarios/service.php?nombre=${dataInput.name}&pwd=${dataInput.pwd}`
+      `https://localhost/Space Managment/servicioUsuarios/service.php?nombre=${dataInput.name}&pwd=${dataInput.pwd}`
     )
       .then((response) => response.json())
       .then((data) => {
+
         if (data != null) {
           if (data.admin) {
-            console.log('root')
+            
           }
         } else {
-          errorUser = true;
+          setUser(true);
         }
-        errorBD = false;
+        setBD(false);
       })
       .catch((error) => {
-        errorBD = true;
-        errorUser = false;
+        console.log(error)
+        setBD(true);
+        setUser(false);
       });
   };
 
@@ -53,7 +56,7 @@ function Login() {
           <input
             type="password"
             placeholder="Password"
-            class="col-8 rounded"
+            className="col-8 rounded"
             name="pwd"
             {...register("pwd", {
               required: "Please, complete all the fieldes",
