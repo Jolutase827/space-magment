@@ -1,8 +1,13 @@
 import React, { Component, useState } from "react";
+import { useParams } from 'react-router-dom';
 import "./hoja-de-estilos/Login.css";
 import { useForm } from "react-hook-form";
 
 function Login() {
+  const params = useParams();
+
+  const { path } = params;
+
   const {
     register,
     formState: { errors },
