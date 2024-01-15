@@ -1,4 +1,4 @@
-main{
+main.login{
     height: 700px;
     display: flex;
     align-items: center;
@@ -8,7 +8,7 @@ main{
     background-size: cover;
     background-repeat: no-repeat;
 }
-main>form{
+main.login>form{
     min-height: 340px;
     background-color: white;
    

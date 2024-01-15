@@ -1,4 +1,4 @@
-import React, { Component, useState } from "react";
+import React, { useState } from "react";
 import { useParams } from 'react-router-dom';
 import "./hoja-de-estilos/Login.css";
 import { useForm } from "react-hook-form";
@@ -19,14 +19,14 @@ function Login() {
     setBD(false);
     setUser(false);
     fetch(
-      `https://localhost/Space Managment/servicioUsuarios/service.php?nombre=${dataInput.name}&pwd=${dataInput.pwd}`
+      `http://localhost/Space Managment/servicioUsuarios/service.php?nombre=${dataInput.name}&pwd=${dataInput.pwd}`
     )
       .then((response) => response.json())
       .then((data) => {
 
         if (data != null) {
           if (data.admin) {
-            
+            window.location = '/rootInterface';
           }
         } else {
           setUser(true);
@@ -41,7 +41,7 @@ function Login() {
   };
 
   return (
-    <main>
+    <main className="login">
       <form
         className="col-12 col-md-8 col-lg-5 rounded pt-3 d-flex flex-column"
         onSubmit={handleSubmit(onSubmit)}
