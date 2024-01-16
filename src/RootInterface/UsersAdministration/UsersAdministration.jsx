@@ -1,7 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './hoja-de-estilos/UsersAdministration.css'
 function UsersAdministration() {
     const goCreateUsers = ()=> window.location = '/createUser';
+    const [users,setUsers] = useState([]);
+    
     return (
         <main className='user-administration'>
             <div className='col-12 d-flex justify-content-between'>
@@ -20,7 +22,9 @@ function UsersAdministration() {
                 </div>
             </div>
             <div className="container-users mt-4 d-flex flex-column align-items-center" >
+                {
 
+                }
             </div>
         <br/>
     </main>

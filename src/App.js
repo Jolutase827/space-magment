@@ -11,7 +11,7 @@ function App() {
       <Router>
         <Header/>
         <Routes>
-          <Route path='/' element={<Navigate to="/rootInterface" />} />
+          <Route path='/' element={<Navigate to="/login" />} />
           <Route path='/login' element={<Login/>}/>
           <Route path='/rootInterface' element={<RootInterface/>}/>
           <Route path='/createUser' element={<CreateUser/>}/>
